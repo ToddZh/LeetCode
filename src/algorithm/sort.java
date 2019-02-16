@@ -1,7 +1,7 @@
 package algorithm;
 import java.util.Arrays;
 
-        
+
 public class sort
 {
     private static final int[] NUMBERS =
@@ -20,9 +20,40 @@ public class sort
         System.out.println(Arrays.toString(array) + " insertSort");
     }
 
+    public static void bubbleSort(int[] array) {
+        for(int i = 0; i < array.length; i++){
+            int temp;
+            for(int j = 0; j < array.length - 1 - i;j++){
+                if(array[j] > array[j+1]){
+                    temp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = temp;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(array) + " bubbleSort");
+
+    }
+
+    public static void selectionSort(int[] array){
+        for(int i=0;i<array.length-1;i++){
+            int min = array[i];
+            int index = i;
+            for (int j=i;j<array.length;j++){
+                if (min >= array[j]){
+                    min = array[j];
+                    index = j;
+                }
+            }
+            int temp = array[i];
+            array[i] = array[index];
+            array[index] = temp;
+        }
+        System.out.println(Arrays.toString(array) + "selectionSort");
+    }
 
 
     public static void main(String[] args) {
-        insertSort(NUMBERS);
+        selectionSort(NUMBERS);
     }
 }
